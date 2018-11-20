@@ -65,7 +65,21 @@ function computer_move() {
 }
 
 function compare(you, machine){
-  var verdict = 'lose';
+  switch (verdict) {
+    case 'win':
+    won++;
+    $("#won").text(won);
+    break;
+    case 'lose':
+    lost++;
+    $("#lost").text(lost);
+    break;
+    case 'draw':
+    draw++;
+    $("#draw").text(draw);
+    break;
+}};
+/*  var verdict = 'lose';
 
 if ( you == machine ) {
     verdict = 'draw';
@@ -95,3 +109,4 @@ if ( you == machine ) {
   played++;
   $("#game_played").text(played);
 }
+*/
