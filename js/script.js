@@ -11,10 +11,14 @@ var draw = 0;
 /* Listen for the button clicks */
 
 $( 'button').click(function(event){
-  var play_you = this.getAttribute("value";);
+  var play_you = this.getAttribute("value");
   console.log(play_you);
-}
-)
+$("#play_you").text(play_you);
+  var play_machine = computer_move();
+  compare(play_you, play_machine);
+});
+
+
 
 /*$("#rock").click(function(event) {
   var play_you = 'rock';
