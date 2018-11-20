@@ -9,7 +9,14 @@ var draw = 0;
 
 
 /* Listen for the button clicks */
-$("#rock").click(function(event) {
+
+$( 'button').click(function(event){
+  var play_you = this.getAttribute("value";);
+  console.log(play_you);
+}
+)
+
+/*$("#rock").click(function(event) {
   var play_you = 'rock';
   $("#play_you").text(play_you);
   var play_machine = computer_move();
@@ -28,7 +35,7 @@ $("#scissors").click(function(event) {
   $("#play_you").text(play_you);
   var play_machine = computer_move();
   compare(play_you, play_machine);
-});
+});*/
 
 
 function computer_move() {
