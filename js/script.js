@@ -2,6 +2,8 @@
 
 var choices = ["rock", "paper", "scissors"];
 
+/*var play_machine;
+var play_you;*/
 var played = 0;
 var won = 0;
 var lost = 0;
@@ -42,10 +44,52 @@ $("#scissors").click(function(event) {
 });*/
 
 
-/*switch (verdict) {
+
+
+function computer_move() {
+  var random_number = Math.floor(Math.random() * (3 - 0)) + 0;
+
+  play_machine = choices[random_number];
+  $("#play_machine").text(play_machine);
+  /*console.log('move: ' + play_machine);*/
+  return play_machine;
+}
+
+function compare(you, machine){
+  var verdict = 'lose';
+
+  if ( you == machine ) {
+    verdict = 'draw';
+  } else if ((you == "rock") && (machine == "scissors")) {
+    verdict = 'win';
+  } else if ((you == "paper") && (machine == "rock")) {
+    verdict = 'win';
+  } else if  ((you == "scissors") && (machine == "paper")) {
+    verdict = 'win';
+  }
+
+  if ( verdict == 'win') {
+    won++;
+    $("#game_won").text(won);
+  } else if  ( verdict == 'lose') {
+    lost++;
+    $("#game_lost").text(lost);
+  } else if  ( verdict == 'draw') {
+    draw++;
+    $("#game_draw").text(draw);
+  }
+
+  $("#verdict").text(verdict);
+
+  played++;
+  $("#game_played").text(played);
+}
+
+/*
+switch (verdict) {
   case 'win':
   won++;
-  $("#won").tet(won);
+  $("#won").text(won);
   break;
   case 'lose':
   lost++;
@@ -55,59 +99,11 @@ $("#scissors").click(function(event) {
   draw++;
   $("#draw").text(draw);
   break;
-}*/
-
-function computer_move() {
-  var play_machine = Math.floor(Math.random() * (3 - 0)) + 0;
-  play_machine = choices[play_machine];
-  $("#play_machine").text(play_machine);
-  return play_machine;
 }
-
-function compare(you, machine) {
-  var verdict = 'lose';
-
-  if (you == machine) {
-    verdict = 'draw';
-  } else if ((you == "rock") && (machine == "scissors")) {
-    verdict = 'win';
-  } else if ((you == "paper") && (machine == "rock")) {
-    verdict = 'win';
-  } else if ((you == "scissors") && (machine == "paper")) {
-    verdict = 'win';
-  }
-
-  switch (verdict) {
-    case 'win':
-      won++;
-      $("#game_won").text(won);
-      break;
-    case 'lose':
-      lost++;
-      $("#game_lost").text(lost);
-      break;
-    case 'draw':
-      draw++;
-      $("#game_draw").text(draw);
-      break;
-      case 'played':
-      played++;
-      $("#game_played").text(played);
-  }};
-
-  /*if (verdict == 'win') {
-    won++;
-    $("#game_won").text(won);
-  } else if (verdict == 'lose') {
-    lost++;
-    $("#game_lost").text(lost);
-  } else if (verdict == 'draw') {
-    draw++;
-    $("#game_draw").text(draw);
-  }
 
   $("#verdict").text(verdict);
 
   played++;
   $("#game_played").text(played);
-}*/
+}
+*/
