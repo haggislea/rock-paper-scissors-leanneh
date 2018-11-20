@@ -14,10 +14,10 @@ var draw = 0;
 
 $('button').click(function(event) {
   var play_you = this.getAttribute("value");
-  console.log(play_you);
   $("#play_you").text(play_you);
   var play_machine = computer_move();
-  compare(play_you, play_machine);
+  var verdict = compare(play_you, play_machine);
+  score(verdict);
 });
 
 
@@ -47,7 +47,8 @@ $("#scissors").click(function(event) {
 
 
 function computer_move() {
-  var random_number = Math.floor(Math.random() * (3 - 0)) + 0;
+
+var play_machine = Math.floor(Math.random() * (3 - 0)) + 0;
 
   play_machine = choices[random_number];
   $("#play_machine").text(play_machine);
@@ -55,7 +56,7 @@ function computer_move() {
   return play_machine;
 }
 
-function compare(you, machine){
+function compare(you, machine) {
   var verdict = 'lose';
 
   if ( you == machine ) {
@@ -68,7 +69,7 @@ function compare(you, machine){
     verdict = 'win';
   }
 
-  if ( verdict == 'win') {
+  /*if ( verdict == 'win') {
     won++;
     $("#game_won").text(won);
   } else if  ( verdict == 'lose') {
@@ -77,33 +78,23 @@ function compare(you, machine){
   } else if  ( verdict == 'draw') {
     draw++;
     $("#game_draw").text(draw);
-  }
-
-  $("#verdict").text(verdict);
-
-  played++;
-  $("#game_played").text(played);
-}
-
-/*
-switch (verdict) {
-  case 'win':
-  won++;
-  $("#won").text(won);
-  break;
-  case 'lose':
-  lost++;
-  $("#lost").text(lost);
-  break;
-  case 'draw':
-  draw++;
-  $("#draw").text(draw);
-  break;
-}
-
-  $("#verdict").text(verdict);
+  }*/
+function score(verdict){
+  switch (verdict) {
+    case 'win':
+    won++;
+    $("#won").text(won);
+    break;
+    case 'lose':
+    lost++;
+    $("#lost").text(lost);
+    break;
+    case 'draw':
+    draw++;
+    $("#draw").text(draw);
+    break;
+  }}
 
   played++;
   $("#game_played").text(played);
 }
-*/
