@@ -8,6 +8,7 @@ body {
   width: 50%;
   max-width: 512px;
   margin: 0 auto;
+  background-color: rgba(232, 141, 122, 0.5);
 }
 
 span#play_you {
